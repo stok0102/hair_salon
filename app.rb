@@ -48,3 +48,10 @@ get("/stylists/:id") do
   @clients = Client.all()
   erb(:stylist)
 end
+
+patch("/stylists/:id") do
+  stylist = Stylist.find(params.fetch("id").to_i())
+  name = params.fetch("new_name")
+  stylist.update({:name => name})
+  erb(:success)
+end

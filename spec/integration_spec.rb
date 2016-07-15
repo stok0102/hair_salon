@@ -27,6 +27,19 @@ describe('deleting a stylist', {:type => :feature}) do
   end
 end
 
+describe('renaming a stylist', {:type => :feature}) do
+  it "allows a user to rename a stylist" do
+    gerry = Stylist.new({:name => "Gerry", :id => nil})
+    gerry.save()
+    visit("/")
+    click_link("Gerry")
+    fill_in("new_name", :with => "Eugene")
+    click_button("Update")
+    click_link("Return Home")
+    expect(page).to have_content("Eugene")
+  end
+end
+
 describe('add a client to a stylist', {:type => :feature}) do
   it "allows a user to add a client to a stylist" do
     gerry = Stylist.new({:name => "Gerry", :id => nil})
