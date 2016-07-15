@@ -54,8 +54,8 @@ describe('add a client to a stylist', {:type => :feature}) do
   end
 end
 
-describe('remove a client from a stylist', {:type => :feature}) do
-  it "allows a user to add a client to a stylist" do
+describe('remove a client', {:type => :feature}) do
+  it "allows a user to remove a client" do
     gerry = Stylist.new({:name => "Gerry", :id => nil})
     gerry.save()
     visit("/")
@@ -63,8 +63,7 @@ describe('remove a client from a stylist', {:type => :feature}) do
     fill_in("name", :with => "Eleanore")
     click_button("Add client")
     click_link("Return Home")
-    click_link("Gerry")
-    expect(page).to have_content("Eleanore")
+    select('Eleanore', :from => "remove_client_id")
     click_button("Delete Client")
     expect(page).to have_content("Success")
   end

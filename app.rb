@@ -37,7 +37,7 @@ post("/clients") do
 end
 
 delete("/client") do
-  @client = Client.find(params.fetch("client_id").to_i())
+  @client = Client.find(params.fetch("remove_client_id").to_i())
   @client.delete()
   @clients = Client.all()
   erb(:success)
@@ -57,7 +57,7 @@ patch("/stylists/:id") do
 end
 
 patch("/client") do
-  @client = Client.find(params.fetch("client_id").to_i())
+  @client = Client.find(params.fetch("rename_client_id").to_i())
   name = params.fetch("new_client_name")
   @client.update({:name => name})
   @clients = Client.all()

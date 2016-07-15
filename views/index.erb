@@ -41,8 +41,8 @@
 
     <form action="/client" method="post">
       <input type="hidden" name="_method" value="delete">
-      <label for="client_id">Select a Client</label>
-      <select id='client_id' name='client_id' type='text' required>
+      <label for="remove_client_id">Select a Client</label>
+      <select id='remove_client_id' name='remove_client_id' type='text' required>
         <% @clients.each() do |client| %>
           <option value="<%= client.id()%>"> <%= client.name() %> </option>
         <% end %>
@@ -54,8 +54,8 @@
 
     <form action="/client" method="post">
       <input type="hidden" name="_method" value="patch">
-      <label for="client_id">Select a Client</label>
-      <select id='client_id' name='client_id' type='text' required>
+      <label for="rename_client_id">Select a Client</label>
+      <select id='rename_client_id' name='rename_client_id' type='text' required>
         <% @clients.each() do |client| %>
           <option value="<%= client.id()%>"> <%= client.name() %> </option>
         <% end %>
