@@ -1,23 +1,21 @@
 # Hair Salon :haircut:
 
-This app allows a user to set up a database of hairstylists and clients using ruby and PostgreSQL
+This app allows a user to set up a database of hairstylists and clients using Ruby and PostgreSQL.
 
 ## User Stories
 * As a salon owner, I want to view, add, update and delete stylists.
 * As a salon owner, I want to view, add, update and delete clients.
 * As a salon owner, I want to add clients to a stylist.
 
-## Creating a database for this app
+## Creating a database for this app in PostgreSQL
 
     CREATE DATABASE hair_salon;
-    CREATE TABLE clients (id serial PRIMARY KEY, name varchar)
     CREATE TABLE stylists (id serial PRIMARY KEY, name varchar)
+    CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int)
 
 ## Installation
 
 Clone this repository from https://github.com/stok0102/hair_salon
-
-## Usage
 
 
 ## Contributing
