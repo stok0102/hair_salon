@@ -29,7 +29,8 @@ end
 
 post("/clients") do
   name = params.fetch("name")
-  client = Client.new({:name => name, :id => nil})
+  stylist_id = params.fetch("stylist_id")
+  client = Client.new({:name => name, :stylist_id => stylist_id, :id => nil})
   client.save()
   erb(:success)
 end
@@ -45,22 +46,4 @@ get("/stylists/:id") do
   @stylist = Stylist.find(params.fetch("id").to_i())
   @clients = Client.all()
   erb(:stylist)
-end
-
-patch("/stylists/:id") do
-  stylist_id = params.fetch("id").to_i()
-  @stylist = Stylist.find(stylist_id)
-  client_ids = params.fetch("client_ids")
-  @stylist.update({:client_ids => client_ids})
-  @clients = Client.all()
-  erb(:stylist_info)
-end
-
-patch("/clients/:id") do
-  client_id = params.fetch("id").to_i()
-  @client = Client.find(client_id)
-  stylist_ids = params.fetch("stylist_ids")
-  @client.update({:stylist_ids => stylist_ids})
-  @stylists = Stylist.all()
-  erb(:client_info)
 end
