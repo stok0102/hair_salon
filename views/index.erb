@@ -37,41 +37,4 @@
       <button class="btn btn-success" type="submit" name="button">Delete Stylist</button>
     </form>
   </div>
-
-  <div class="col-md-6">
-
-    <h2>Clients</h2>
-    <% if @clients.any?() %>
-
-    <ul>
-      <% @clients.each do |client| %>
-      <li><a href="/clients/<%=client.id()%>"><%= client.name() %></a></li>
-      <% end %>
-    </ul>
-    <% else %>
-    <p>There are no clients yet!</p>
-    <% end %>
-
-    <p>Add a New Client</p>
-
-    <form action="/clients" method="post">
-      <label for="client_name">Assign a name to your client:</label>
-      <input type="text" name="client_name" id="client_name" required>
-
-      <button class="btn btn-success" type="submit">Add Client</button>
-    </form>
-
-    <h2>Update clients</h2>
-
-    <form action="/client" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <label for="client_id">Select a Client</label>
-      <select id='client_id' name='client_id' type='text' required>
-        <% @clients.each() do |client| %>
-          <option value="<%= client.id()%>"> <%= client.name() %> </option>
-        <% end %>
-      </select>
-      <button class="btn btn-success" type="submit" name="button">Delete Client</button>
-    </form>
-  </div>
 </div>

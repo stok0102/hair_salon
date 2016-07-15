@@ -1,35 +1,35 @@
 <h1><%= @stylist.name() %></h1>
 
-<h3>Select all clients this stylist takes care of:</h3>
-
-<% if @clients.any?() %>
-  <form action="/stylists/<%= @stylist.id %>" method="post">
-    <input type="hidden" name="_method" value="patch">
-
-    <% @clients.each() do |client| %>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="client_ids[]" value="<%= client.id() %>"><%= client.name() %>
-        </label>
-      </div>
-    <% end %>
-
-    <button type="submit">Add clients</button>
-  </form>
-<% end %>
-
-
 <% if @stylist.clients().any?() %>
-  <h3>Here are all the clients this stylist takes care of:</h3>
+  <h3>Here are all the clients of this stylist:</h3>
 
   <ul>
     <% @stylist.clients().each() do |client| %>
-      <li><%= client.name() %></li>
+      <li><%= client.name() %> Birthday: <%= client.birthdate() %></li>
+      <button>Delete</button>
     <% end %>
   </ul>
-<% else %>
-  <p>There are no clients yet!</p>
-<% end %>
+
+  <% else %>
+    <p>There are no clients for this stylist!</p>
+  <% end %>
 
 
-<a href="/">Return to Main Page</a>
+<h3>Add a client to <em><%= @stylist.name() %></em> </h3>
+
+<form action="/clients" method="post">
+  <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
+
+  <label for="name">Name of the client:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add client</button>
+</form>
+
+<hr>
+
+<div class="container">
+  <a href="/">Home</a>
+  <a href="/stylists">View All Stylists</a>
+  <a href="/stylists/new">Add New Stylist</a>
+</div>

@@ -28,7 +28,7 @@ delete("/stylist") do
 end
 
 post("/clients") do
-  name = params.fetch("client_name")
+  name = params.fetch("name")
   client = Client.new({:name => name, :id => nil})
   client.save()
   erb(:success)
