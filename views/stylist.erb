@@ -25,6 +25,19 @@
   <button type="submit">Add client</button>
 </form>
 
+<h2>Remove clients</h2>
+
+<form action="/client" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <label for="client_id">Select a Client</label>
+  <select id='client_id' name='client_id' type='text' required>
+    <% @clients.each() do |client| %>
+      <option value="<%= client.id()%>"> <%= client.name() %> </option>
+    <% end %>
+  </select>
+  <button class="btn btn-success" type="submit" name="button">Delete Client</button>
+</form>
+
 <hr>
 
 <div class="container">
