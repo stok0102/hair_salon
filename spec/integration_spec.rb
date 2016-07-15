@@ -33,5 +33,10 @@ describe('add a client to a stylist', {:type => :feature}) do
     gerry.save()
     visit("/")
     click_link("Gerry")
+    fill_in("name", :with => "Eleanore")
+    click_button("Add client")
+    click_link("Return Home")
+    click_link("Gerry")
+    expect(page).to have_content("Eleanore")
   end
 end
