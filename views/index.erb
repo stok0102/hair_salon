@@ -15,7 +15,7 @@
     <p>There are no stylists yet!</p>
     <% end %>
 
-    <p>Add a New Stylist</p>
+    <h2>Add a New Stylist</h2>
 
     <form action="/stylists" method="post">
       <label for="stylist_name">Assign a name to your stylist:</label>
@@ -35,6 +35,34 @@
         <% end %>
       </select>
       <button class="btn btn-success" type="submit" name="button">Delete Stylist</button>
+    </form>
+
+    <h2>Remove clients</h2>
+
+    <form action="/client" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <label for="client_id">Select a Client</label>
+      <select id='client_id' name='client_id' type='text' required>
+        <% @clients.each() do |client| %>
+          <option value="<%= client.id()%>"> <%= client.name() %> </option>
+        <% end %>
+      </select>
+      <button class="btn btn-success" type="submit" name="button">Delete Client</button>
+    </form>
+
+    <h2>Rename clients</h2>
+
+    <form action="/client" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="client_id">Select a Client</label>
+      <select id='client_id' name='client_id' type='text' required>
+        <% @clients.each() do |client| %>
+          <option value="<%= client.id()%>"> <%= client.name() %> </option>
+        <% end %>
+      </select>
+      <label for="new_client_name">New Name</label>
+      <input type="text" id="new_client_name" name="new_client_name" value="">
+      <button class="btn btn-success" type="submit" name="button">Rename Client</button>
     </form>
   </div>
 </div>
