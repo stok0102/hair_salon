@@ -55,3 +55,11 @@ patch("/stylists/:id") do
   stylist.update({:name => name})
   erb(:success)
 end
+
+patch("/client") do
+  @client = Client.find(params.fetch("client_id").to_i())
+  name = params.fetch("new_client_name")
+  @client.update({:name => name})
+  @clients = Client.all()
+  erb(:success)
+end
