@@ -6,7 +6,7 @@
   <ul>
     <% @stylist.clients().each() do |client| %>
       <li><%= client.name() %> </li>
-          <button>Delete</button><% end %>
+<% end %>
   </ul>
 
   <% else %>
@@ -29,6 +29,4 @@
 
 <div class="container">
   <a href="/">Home</a>
-  <a href="/stylists">View All Stylists</a>
-  <a href="/stylists/new">Add New Stylist</a>
 </div>

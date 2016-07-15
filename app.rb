@@ -4,6 +4,7 @@ also_reload("lib/**/*.rb")
 require("./lib/stylist")
 require("./lib/client")
 require('pg')
+require("pry")
 
 DB = PG.connect({:dbname => 'hair_salon_test'})
 
@@ -45,5 +46,6 @@ end
 get("/stylists/:id") do
   @stylist = Stylist.find(params.fetch("id").to_i())
   @clients = Client.all()
+  binding.pry
   erb(:stylist)
 end
