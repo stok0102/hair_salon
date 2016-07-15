@@ -1,77 +1,77 @@
-<h1 id="jumbotron">Go by Train</h1>
+<h1 id="jumbotron">Get your hair cut idiot</h1>
 
 
 <div class="row">
   <div class="col-md-6">
-    <h2>Trains</h2>
-    <% if @trains.any?() %>
-      <p>Click on a train to see the cities where they stop</p>
+    <h2>Stylists</h2>
+    <% if @stylists.any?() %>
+      <p>Click on a stylist to see their list of clients</p>
     <ul>
-      <% @trains.each do |train| %>
-      <li><a href="/trains/<%=train.id()%>"><%= train.name() %></a></li>
+      <% @stylists.each do |stylist| %>
+      <li><a href="/stylists/<%=stylist.id()%>"><%= stylist.name() %></a></li>
       <% end %>
     </ul>
     <% else %>
-    <p>There are no trains yet!</p>
+    <p>There are no stylists yet!</p>
     <% end %>
 
-    <p>Add a New Train</p>
+    <p>Add a New Stylist</p>
 
-    <form action="/trains" method="post">
-      <label for="train_name">Assign a name to your train:</label>
-      <input type="text" name="train_name" id="train_name" required>
+    <form action="/stylists" method="post">
+      <label for="stylist_name">Assign a name to your stylist:</label>
+      <input type="text" name="stylist_name" id="stylist_name" required>
 
-      <button class="btn btn-success" type="submit">Add Train</button>
+      <button class="btn btn-success" type="submit">Add Stylist</button>
     </form>
 
-    <h2>Update trains</h2>
+    <h2>Update stylists</h2>
 
-    <form action="/train" method="post">
+    <form action="/stylist" method="post">
       <input type="hidden" name="_method" value="delete">
-      <label for="train_id">Select a Train</label>
-      <select id='train_id' name='train_id' type='text' required>
-        <% @trains.each() do |train| %>
-          <option value="<%= train.id()%>"> <%= train.name() %> </option>
+      <label for="stylist_id">Select a Stylist</label>
+      <select id='stylist_id' name='stylist_id' type='text' required>
+        <% @stylists.each() do |stylist| %>
+          <option value="<%= stylist.id()%>"> <%= stylist.name() %> </option>
         <% end %>
       </select>
-      <button class="btn btn-success" type="submit" name="button">Delete Train</button>
+      <button class="btn btn-success" type="submit" name="button">Delete Stylist</button>
     </form>
   </div>
 
   <div class="col-md-6">
 
-    <h2>Cities</h2>
-    <% if @cities.any?() %>
+    <h2>Clients</h2>
+    <% if @clients.any?() %>
 
     <ul>
-      <% @cities.each do |city| %>
-      <li><a href="/cities/<%=city.id()%>"><%= city.name() %></a></li>
+      <% @clients.each do |client| %>
+      <li><a href="/clients/<%=client.id()%>"><%= client.name() %></a></li>
       <% end %>
     </ul>
     <% else %>
-    <p>There are no cities yet!</p>
+    <p>There are no clients yet!</p>
     <% end %>
 
-    <p>Add a New City</p>
+    <p>Add a New Client</p>
 
-    <form action="/cities" method="post">
-      <label for="city_name">Assign a name to your city:</label>
-      <input type="text" name="city_name" id="city_name" required>
+    <form action="/clients" method="post">
+      <label for="client_name">Assign a name to your client:</label>
+      <input type="text" name="client_name" id="client_name" required>
 
-      <button class="btn btn-success" type="submit">Add City</button>
+      <button class="btn btn-success" type="submit">Add Client</button>
     </form>
 
-    <h2>Update cities</h2>
+    <h2>Update clients</h2>
 
-    <form action="/city" method="post">
+    <form action="/client" method="post">
       <input type="hidden" name="_method" value="delete">
-      <label for="city_id">Select a City</label>
-      <select id='city_id' name='city_id' type='text' required>
-        <% @cities.each() do |city| %>
-          <option value="<%= city.id()%>"> <%= city.name() %> </option>
+      <label for="client_id">Select a Client</label>
+      <select id='client_id' name='client_id' type='text' required>
+        <% @clients.each() do |client| %>
+          <option value="<%= client.id()%>"> <%= client.name() %> </option>
         <% end %>
       </select>
-      <button class="btn btn-success" type="submit" name="button">Delete City</button>
+      <button class="btn btn-success" type="submit" name="button">Delete Client</button>
     </form>
   </div>
 </div>

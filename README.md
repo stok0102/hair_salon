@@ -2,7 +2,7 @@
 
 This app allows a user to set up a database of hairstylists and clients using ruby and PostgreSQL
 
-### User Stories
+## User Stories
 * As a salon owner, I want to view, add, update and delete stylists.
 * As a salon owner, I want to view, add, update and delete clients.
 * As a salon owner, I want to add clients to a stylist.
